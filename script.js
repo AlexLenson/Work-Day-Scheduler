@@ -20,4 +20,48 @@ $(function () {
   // attribute of each time-block be used to do this?
   //
   // TODO: Add code to display the current date in the header of the page.
+
+  var containerEl = $(".container-lg")
+  var buttonEl = $(".btn")
+  var dataArray = [];
+
+
+
+
+
+
+
+
+
+
+
+  // Event listeners
+containerEl.on("click", ".btn", function (event) {
+  // console.log($(this));
+  var parentEl = $(this).parent();
+  var hour = parentEl.attr("id");
+  var description = parentEl.children("textarea").val();
+  // var dataObj = {
+  //   hour: hour,
+  //   description: description
+  // }
+
+  localStorage.setItem(hour, description)
+
+
+  // if (event.target.matches(".btn") ) {
+  //   var parentEl = $(this).parent();
+  //   console.log($(this));
+  //   console.log(parentEl);
+  //   var hour = parentEl.attr("id");
+  //   var description = parentEl.children("textarea").val();
+  // } else {
+  //   console.log('icon');
+  //   console.log(this);
+  // }
+})
+
+
+
+
 });
