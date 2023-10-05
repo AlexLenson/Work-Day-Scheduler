@@ -42,7 +42,7 @@ $(function () {
         $(rowID).children("textarea").val(storedText);
       }
 
-      
+
     }
     // console.log(localStorage.getItem("hour-9"));
   }
@@ -56,32 +56,51 @@ $(function () {
 
 
 
+  function displayDate() {
+    var today = dayjs();
+    $('#currentDay').text(today.format('dddd, MMMM D'));
+    
+  }
+
+  // setInterval to update date every 15 min
+  displayDate();
+
+
+
+
+  // function to update the time by comparing current hour with block hour
+  function updateTime() {
+    currentHour = today.format("h")
+    console.log(currentHour);
+  }
+
+
   // Event listeners
-containerEl.on("click", ".btn", function (event) {
-  // console.log($(this));
-  var parentEl = $(this).parent();
-  var hour = parentEl.attr("id");
-  var description = parentEl.children("textarea").val();
-  // var dataObj = {
-  //   hour: hour,
-  //   description: description
-  // }
+  containerEl.on("click", ".btn", function (event) {
+    // console.log($(this));
+    var parentEl = $(this).parent();
+    var hour = parentEl.attr("id");
+    var description = parentEl.children("textarea").val();
+    // var dataObj = {
+    //   hour: hour,
+    //   description: description
+    // }
 
-  localStorage.setItem(hour, description);
-  
+    localStorage.setItem(hour, description);
 
 
-  // if (event.target.matches(".btn") ) {
-  //   var parentEl = $(this).parent();
-  //   console.log($(this));
-  //   console.log(parentEl);
-  //   var hour = parentEl.attr("id");
-  //   var description = parentEl.children("textarea").val();
-  // } else {
-  //   console.log('icon');
-  //   console.log(this);
-  // }
-})
+
+    // if (event.target.matches(".btn") ) {
+    //   var parentEl = $(this).parent();
+    //   console.log($(this));
+    //   console.log(parentEl);
+    //   var hour = parentEl.attr("id");
+    //   var description = parentEl.children("textarea").val();
+    // } else {
+    //   console.log('icon');
+    //   console.log(this);
+    // }
+  })
 
 
 
