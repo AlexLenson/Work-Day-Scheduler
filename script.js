@@ -23,14 +23,35 @@ $(function () {
 
   var containerEl = $(".container-lg")
   var buttonEl = $(".btn")
-  var dataArray = [];
+  // var dataArray = [];
 
 
+  function getData() {
+    // for (var i = 0, len = localStorage.length; i < len; ++i) {
+    //   console.log(localStorage.getItem(localStorage.key(i)));
+    // }
 
+    for (let i = 9; i < 18; i++) {
+      // console.log("hour-" + i);
+      var storedHour = "hour-" + i;
+      console.log(localStorage.getItem(storedHour));
+      var storedText = localStorage.getItem(storedHour);
+      var rowID = "#" + storedHour;
+      // console.log(typeof(storedText));
+      if (storedText != null) {
+        $(rowID).children("textarea").val(storedText);
+      }
 
+      
+    }
+    // console.log(localStorage.getItem("hour-9"));
+  }
 
-
-
+  getData();
+  // var storedHour = "#" + "hour-" + 9;
+  // console.log(typeof(storedHour));
+  // $(storedHour).children("textarea").val("hi");
+  // $("#hour-9").children("textarea").val("hi");
 
 
 
@@ -46,7 +67,8 @@ containerEl.on("click", ".btn", function (event) {
   //   description: description
   // }
 
-  localStorage.setItem(hour, description)
+  localStorage.setItem(hour, description);
+  
 
 
   // if (event.target.matches(".btn") ) {
