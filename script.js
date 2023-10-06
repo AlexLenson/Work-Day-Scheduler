@@ -132,17 +132,20 @@ $(function () {
       currentHour = 23;
     }
 
-
+    // toggle background color for each block based on if time is past, present or future
     for (let i = 9; i < 18; i++) {
       var hourID = "#hour-" + i;
       var blockHour = i;
-      
+
       if (blockHour < currentHour) {
         // past
+        $(hourID).toggleClass("past");
       } else if (blockHour == currentHour) {
         // present
+        $(hourID).toggleClass("present");
       } else {
         // future
+        $(hourID).toggleClass("future");
       }
     }
     
