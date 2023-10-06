@@ -55,15 +55,23 @@ $(function () {
 
 
 
+  var today = dayjs();
 
   function displayDate() {
-    var today = dayjs();
-    $('#currentDay').text(today.format('dddd, MMMM D'));
+    $('#currentDay').text(today.format('dddd, MMMM D YYYY'));
     
   }
 
-  // setInterval to update date every 15 min
+  // Display current date on page load
   displayDate();
+
+  // setInterval to update date every 15 min
+  setInterval(function() {
+    displayDate();
+    updateTime();
+  }, 900000);
+
+
 
 
 
@@ -73,6 +81,8 @@ $(function () {
     currentHour = today.format("h")
     console.log(currentHour);
   }
+
+  updateTime();
 
 
   // Event listeners
